@@ -72,7 +72,7 @@ static Key keys[] = {
 	{ MODKEY,             		XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,			XK_g,	   spawn,	   {.v = chrome } },
 	{ MODKEY,			XK_a,	   spawn,	   {.v = monkey } },
-	{ MODKEY,			XK_x,	   spawn,	   {.v = sterm } },
+	{ MODKEY,			XK_x,	   spawn,	   {.v = aterm } },
 	{ MODKEY,			XK_c,	   spawn,	   {.v = vscode } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
