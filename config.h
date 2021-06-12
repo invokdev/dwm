@@ -33,6 +33,7 @@ static const Rule rules[] = {
 	{ "SeaMonkey", NULL,      NULL,       1 << 2,	    0,		     -1 },
 	{ "code",     NULL,	      NULL,       1 << 4,	    0,           -1 },
     { "firefox",  NULL,       NULL,       1 << 1,       0,           -1 },  
+    { "LibreWolf", NULL,      NULL,       1 << 1,       0,           -1 },
 };
 
 /* layout(s) */
@@ -67,6 +68,7 @@ static const char *monkey[] = { "seamonkey", NULL };
 static const char *aterm[] = { "alacritty", NULL };
 static const char *vscode[] = { "code", NULL };
 static const char *fifox[] = { "firefox", NULL };
+static const char *libwolf[] = { "librewolf", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -77,13 +79,14 @@ static Key keys[] = {
 	{ MODKEY,			            XK_x,	   spawn,	       {.v = aterm } },
 	{ MODKEY,			            XK_c,	   spawn,	       {.v = vscode } },
     { MODKEY,                       XK_f,      spawn,          {.v = fifox } },
+    { MODKEY,                       XK_l,      spawn,          {.v = libwolf } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+	{ MODKEY|ShiftMask,             XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_w,      killclient,     {0} },
