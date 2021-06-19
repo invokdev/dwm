@@ -65,6 +65,7 @@ static const char *chrome[] = { "google-chrome-stable", NULL };
 static const char *sterm[] = { "st", NULL };
 static const char *libwolf[] = { "librewolf", NULL };
 static const char *emacs[] = { "emacs", NULL };
+static const char *slockcmd[] = { "slock", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -74,6 +75,7 @@ static Key keys[] = {
 	{ MODKEY,			            XK_x,	   spawn,	       {.v = sterm } },
     { MODKEY,                       XK_l,      spawn,          {.v = libwolf } },
     { MODKEY,                       XK_e,      spawn,          {.v = emacs } },
+    { MODKEY,                       XK_s,      spawn,          {.v = slockcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
