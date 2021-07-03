@@ -19,7 +19,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "", "", "", "", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -27,9 +27,12 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
+	{ "Gimp",     NULL,       NULL,       1 << 3,       0,           -1 },
 	{ "chrome",   NULL,       NULL,       1 << 1,       0,           -1 },
-	{ "Nitrogen", NULL,       NULL,       1 << 2,       0,           -1 },
+	{ "Nitrogen", NULL,       NULL,       1 << 3,       0,           -1 },
+    { "LibreWolf", NULL,      NULL,       1 << 1,       0,           -1 },
+    { "Emacs",    NULL,       NULL,       1 << 5,       0,           -1 },
+	{ "code",     NULL,       NULL,       1 << 4,       0,           -1 },
 };
 
 /* layout(s) */
@@ -58,26 +61,36 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 static const char *chrome[] = { "google-chrome-stable", NULL };
+static const char *sterm[] = { "st", NULL };
+static const char *libwolf[] = { "librewolf", NULL };
+static const char *emacs[] = { "emacs", NULL };
+static const char *slockcmd[] = { "slock", NULL };
+static const char *vscode[] = { "code", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
-	{ MODKEY,             		XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,			XK_g,	   spawn,	   {.v = chrome } },
+	{ MODKEY,             		    XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,			            XK_g,	   spawn,	       {.v = chrome } },
+	{ MODKEY,			            XK_x,	   spawn,	       {.v = sterm } },
+    { MODKEY,                       XK_l,      spawn,          {.v = libwolf } },
+    { MODKEY,                       XK_e,      spawn,          {.v = emacs } },
+    { MODKEY,                       XK_s,      spawn,          {.v = slockcmd } },
+	{ MODKEY,                       XK_c,      spawn,          {.v = vscode } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+	{ MODKEY|ShiftMask,             XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY,             		XK_w,      killclient,     {0} },
+	{ MODKEY,                       XK_w,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_p,      setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
