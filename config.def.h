@@ -7,9 +7,9 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=16" };
 static const char dmenufont[]       = "monospace:size=16";
-static const char col_gray1[]       = "#FDFBFC";
+static const char col_gray1[]       = "#000000";
 static const char col_gray2[]       = "#DA6A38";
-static const char col_gray3[]       = "#2D2D2D";
+static const char col_gray3[]       = "#CBC8BF";
 static const char col_gray4[]       = "#AD8605";
 static const char col_cyan[]        = "#005577";
 static const char *colors[][3]      = {
@@ -74,10 +74,10 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
 	{ MODKEY,             		    XK_Return, spawn,          {.v = termcmd } },
-    { MODKEY,                       XK_f,      spawn,          {.v = fifoxcmd } },
-    { MODKEY,                       XK_l,      spawn,          {.v = libwolf } },
-    { MODKEY,                       XK_e,      spawn,          {.v = emacs } },
-    { MODKEY,                       XK_s,      spawn,          {.v = slockcmd } },
+  { MODKEY,                       XK_f,      spawn,          {.v = fifoxcmd } },
+  { MODKEY,                       XK_l,      spawn,          {.v = libwolf } },
+  { MODKEY,                       XK_e,      spawn,          {.v = emacs } },
+  { MODKEY,                       XK_s,      spawn,          {.v = slockcmd } },
 	{ MODKEY,                       XK_c,      spawn,          {.v = vscode } },
   { MODKEY,                       XK_v,       spawn,         {.v = vboxcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
