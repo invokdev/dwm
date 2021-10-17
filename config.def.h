@@ -31,7 +31,7 @@ static const Rule rules[] = {
 	{ "Nitrogen",  NULL,       NULL,       1 << 3,       0,           -1 },
   { "LibreWolf", NULL,      NULL,       1 << 1,       0,           -1 },
   { "Emacs",     NULL,       NULL,       1 << 5,       0,           -1 },
-  { "firefox",   NULL,       NULL,       1 << 1,       0,           -1 },
+  { "Firefox",   NULL,       NULL,       1 << 1,       0,           -1 },
   { "VirtualBox", NULL,   NULL,       1 << 2,       0,            -1 },
   { "Thunderbird", NULL,  NULL,       1 << 7,       0,            -1 },
   { "Leafpad",   NULL,    NULL,    1 << 2,          0,           -1}, 
@@ -63,7 +63,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *termcmd[]  = { "kitty", NULL };
 static const char *fifoxcmd[] = { "firefox", NULL };
 static const char *libwolf[] = { "librewolf", NULL };
 static const char *emacs[] = { "emacs", NULL };
